@@ -1,18 +1,23 @@
 class Person {
+  #name;
+  #email;
+  #age;
   constructor(name, email, age) {
-    this.name = name;
-    this.email = email;
-    this.age = age;
+    this.#name = name;
+    this.#email = email;
+    this.#age = age;
   }
-  changeName(name) {
-    this.name = name;
+  get name() {
+    // return this.#name;
+    // return this.#name.toUpperCase();
+    // return this.#name.split(" ")[0];
+    return this.#name.split(" ").at(0);
   }
-
-  changeEmail(email) {
-    this.email = email;
+  set name(name) {
+    this.#name = name;
   }
-  sendEmail(msg) {
-    console.log("to", this.email);
+  #sendEmail(msg) {
+    console.log("to", this.#email);
     console.log("email sending...");
     console.log("Message", msg);
   }
@@ -21,12 +26,7 @@ class Person {
   }
 }
 
-const person1 = new Person("sabuj", "sabuj@email.com", 30);
+const person1 = new Person("sabuj mahonto", "sabuj@email.com", 30);
 const person2 = new Person("Shohanur Rahoman", "shohanur@gamil.com", 23);
-// console.log(person1);
-person1.sendEmail("hello");
-person1.changeName("somir");
-person1.changeEmail("somir@gamil.com");
 
-person2.print();
-person1.print();
+console.log(person1.name);
