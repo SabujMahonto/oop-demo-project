@@ -1,7 +1,10 @@
 class Person {
+  static PI = 3.1416;
+  static fullName = "branden edge";
   #name;
   #email;
   #age;
+
   constructor(name, email, age) {
     this.#name = name;
     this.#email = email;
@@ -16,16 +19,15 @@ class Person {
   set name(value) {
     this.#name = value;
   }
-  #sendEmail(msg) {
-    console.log("to", this.#email);
-    console.log("email sending...");
-    console.log("Message", msg);
-  }
+
   print() {
     console.log(this + "");
   }
   toString() {
     return `Name:${this.#name} Email:${this.#email}`;
+  }
+  static isValid(age) {
+    return age >= 18;
   }
 }
 
@@ -36,3 +38,15 @@ console.log(person1.name);
 person1.name = "Somir Mahonto";
 console.log(person1);
 person1.print();
+
+const testUser = {
+  name: "test user",
+  email: "testuser@gmail.com",
+  age: 24,
+};
+
+let person4 = null;
+if (Person.isValid(testUser.age)) {
+  person4 = new Person(testUser.name, testUser.email);
+}
+person4.print();
