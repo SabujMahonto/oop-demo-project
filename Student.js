@@ -1,25 +1,26 @@
-class Student {
-  #subject;
-  #tuitionFee;
-  constructor(subject, tuitionFee) {
-    this.#subject = subject;
-    this.tuitionFee = tuitionFee;
+const Person = require("./Person");
+const _subjects = Symbol("subjects");
+const _tuitionFee = Symbol("tuitionFee");
+
+class Student extends Person {
+  constructor(name, email, subjects, tuitionFee) {
+    super(name, email);
+    this[_subjects] = subjects;
+    this[_tuitionFee] = tuitionFee;
   }
-  get subject() {
-    return this.#subject;
-  }
-  set subject(sub) {
-    this.#subject = sub;
+  get subjects() {
+    return this[_subjects];
   }
   get tuitionFee() {
-    return this.#tuitionFee;
+    return this[_tuitionFee];
   }
-
   print() {
     console.log(this + "");
   }
   toString() {
-    return `Subject:${this.#subject} tuitionFee:${this.#tuitionFee}`;
+    return ` ${super.toString()},Subjects:${this[_subjects]},TuitionFee:${
+      this[_tuitionFee]
+    }`;
   }
 }
 module.exports = Student;

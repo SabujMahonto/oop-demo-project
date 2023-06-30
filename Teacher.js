@@ -1,25 +1,25 @@
-class Teacher {
-  #subject;
-  #salary;
-  constructor(subject, salary) {
-    this.#subject = subject;
-    this.#salary = salary;
+const Person = require("./Person");
+const _subject = Symbol("subject");
+const _salary = Symbol("salary");
+
+class Teacher extends Person {
+  constructor(name, email, subject, salary) {
+    super(name, email);
+    this[_subject] = subject;
+    this[_salary] = salary;
   }
   get subject() {
-    return this.#subject;
-  }
-  set subject(sub) {
-    this.#subject = sub;
+    return this[_subject];
   }
   get salary() {
-    return this.#salary;
+    return this[_salary];
   }
 
   print() {
-    console.log(this + "");
+    console.log(this.toString());
   }
   toString() {
-    return `Subject:${this.#subject} salary:${this.#salary}`;
+    return `${super.toString()}, ${this[_subject]},${this[_salary]}`;
   }
 }
 
