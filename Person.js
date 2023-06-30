@@ -1,28 +1,28 @@
-const _name = Symbol("name");
-const _email = Symbol("email");
-
 class Person {
+  #name;
+  #email;
   constructor(name, email) {
-    this[_email] = email;
-    this[_name] = name;
+    this.#name = name;
+    this.#email = email;
   }
   get name() {
-    return this[_name];
+    return this.#name;
   }
   set name(value) {
-    this[_name] = value;
+    this.#name = value;
   }
   get email() {
-    return this[_email];
+    return this.#email;
   }
   set email(value) {
-    this[_email] = value;
+    this.#email = value;
   }
   print() {
-    console.log(this + "");
+    // console.log(this.toString());
+    console.log(this + ""); // shortcut
   }
   toString() {
-    return `Name:${this[_name]},Email:${this[_email]}`;
+    return `Name:${this.#name}, Email:${this.#email}`;
   }
 }
 

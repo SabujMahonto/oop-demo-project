@@ -3,25 +3,22 @@ const Student = require("./Student");
 const Teacher = require("./Teacher");
 
 // student
-const student = new Student(
-  "dip roy",
-  "dipuroy@email.com",
-  ["english", "bangla", "Math"],
-  23000
+const student1 = new Student(
+  "sabuj Mahonto",
+  "sabujmahonto@gmail.com",
+  ["computer fundamental 101", "Physics", "Chemistry", "Math"],
+  12000
 );
-
-student.print();
-// console.log(student);
+student1.print();
 
 // teacher
-const teacher = new Teacher(
-  "Mr.Shohanur Rahaman",
-  "shohanur@email.com",
-  ["English", "Bangla", "Math", "Physic"],
-  500000
+const teacher1 = new Teacher(
+  "Mr.Shohan Rahaman",
+  "shohanrahaman@email.com",
+  ["Computer fundamental", "Math"],
+  15000000
 );
-
-teacher.print();
+teacher1.print();
 
 module.exports = {
   Person,
